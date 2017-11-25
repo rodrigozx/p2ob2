@@ -179,18 +179,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jbRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRankingActionPerformed
 
-//        if (Modelo.getRanking().size() > 0){
-//            //Apertura de la ventana ranking jugador
-//            Ranking vRanking = new Ranking(Modelo);
-//            vRanking.setSize(900, 600);
-//            vRanking.setVisible(true);
-//            vRanking.setTitle("INVERSIONES - Ranking");
-//            dispose();
-//        }else{
-            JOptionPane.showMessageDialog(null, "Aún no existen jugadores registrados!");
-//        }
+        try{
+            if (Modelo.getListaJugadores().size() > 0){
+                //Apertura de la ventana ranking jugador
+                Ranking vRanking = new Ranking(Modelo);
+                vRanking.setSize(900, 600);
+                vRanking.setVisible(true);
+                vRanking.setTitle("INVERSIONES - Ranking");
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(null, "Aún no existen jugadores registrados!");
+            }
 
-
+        }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, ex.toString());
+        }
     }//GEN-LAST:event_jbRankingActionPerformed
 
     private void JbJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbJugarActionPerformed

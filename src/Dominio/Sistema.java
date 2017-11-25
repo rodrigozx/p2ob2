@@ -20,6 +20,8 @@ public class Sistema {
     //Constructor del Sistema
     public Sistema() {
         this.listaJugadores = new ArrayList();
+        Jugador unJugador = new Jugador ("null","",0,0,0,0);
+        this.getListaJugadores().add(unJugador);
 
         //La partida se crea al seleccionar nueva partida
         //this.partida = new Partida();

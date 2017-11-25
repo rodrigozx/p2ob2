@@ -231,16 +231,17 @@ public class CrearJugador extends javax.swing.JFrame {
                 jTextFNombre.setText(null);
                 jComBEdad.setSelectedIndex(0);
 
-                //Intenta guardar en el modelo
-                try {
-                    Persistencia.ArchSistema.guardar(Modelo);
-                } catch (IOException ex) {
-                    Logger.getLogger(CrearJugador.class.getName()).log(Level.SEVERE, null, ex);
-                }
+//                //Intenta guardar en el modelo
+//                try {
+//                    Persistencia.ArchSistema.guardar(Modelo);
+//                    
+//                } catch (IOException ex) {
+//                    Logger.getLogger(CrearJugador.class.getName()).log(Level.SEVERE, null, ex);
+//                }
             }
 
         } catch (Exception ex) {
-
+            JOptionPane.showMessageDialog(null, ex.toString());
         }
 
     }//GEN-LAST:event_jbCrearActionPerformed
