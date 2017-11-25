@@ -1,4 +1,3 @@
-
 package Persistencia;
 
 import java.io.FileInputStream;
@@ -33,3 +32,4 @@ public class ArchSistema {
     }
 
 }
+

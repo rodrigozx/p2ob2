@@ -83,6 +83,7 @@ public class SeleccionarJugadores extends javax.swing.JFrame {
         jBAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("INVERSIONES - Seleccionar Jugadores");
         setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
@@ -168,6 +169,8 @@ public class SeleccionarJugadores extends javax.swing.JFrame {
                     .addComponent(jBAtras))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
+
+        getAccessibleContext().setAccessibleName("INVERSIONES - Seleccionar Jugadores");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

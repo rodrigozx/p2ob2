@@ -17,10 +17,10 @@ import java.awt.Image;
 
 public class MenuPrincipal extends javax.swing.JFrame {
 
-    private Sistema Modelo;
+    public Sistema Modelo;
     private ImageIcon patronIco = new ImageIcon("src/Img/patronIco.png");
     private ImageIcon background = new ImageIcon("src/Img/background-menu.png");
-    private Image stonesIcon = (new ImageIcon("src/Img/stonesicon.png").getImage());
+    private Image inversionesIcon = (new ImageIcon("src/Img/inversiones_icon.png").getImage());
     
     public MenuPrincipal(Sistema elModelo) {
         Modelo = elModelo;
@@ -32,14 +32,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);//Ventana Centrada
         setResizable(false);//Impedir que se maximice
-        setTitle("ESQUINAS - Menú Principal");
+        setTitle(" - Menú Principal");
         
         //Seteo imagen de icono
-        this.setIconImage(stonesIcon);
+        this.setIconImage(inversionesIcon);
 
         //Seteo imagenes de los botones
         JbJugar.setIcon(new ImageIcon("src/Img/jugar.png"));
-        JbRegistrarJugador.setIcon(new ImageIcon("src/Img/registrarjugadores.png"));
+        JbRegistrarJugador.setIcon(new ImageIcon("src/Img/registrojugadores.png"));
         jbInfo.setIcon(new ImageIcon("src/Img/info.png"));
         jbSalir.setIcon(new ImageIcon("src/Img/salir.png"));
         jbRanking.setIcon(new ImageIcon("src/Img/ranking.png"));
@@ -82,15 +82,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jbInfo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ESQUINAS - Menú Principal");
+        setTitle("INVERSIONES - Menú Principal");
         setAutoRequestFocus(false);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         setIconImages(getIconImages());
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(900, 600));
         setSize(new java.awt.Dimension(900, 600));
 
         JbRegistrarJugador.setText("Registrar Jugador");
-        JbRegistrarJugador.setMargin(new java.awt.Insets(0, 14, 0, 14));
+        JbRegistrarJugador.setMargin(null);
         JbRegistrarJugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbRegistrarJugadorActionPerformed(evt);
@@ -99,7 +99,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         JbJugar.setBackground(new java.awt.Color(240, 255, 255));
         JbJugar.setText("Jugar");
-        JbJugar.setMargin(new java.awt.Insets(0, 14, 0, 14));
+        JbJugar.setMargin(null);
         JbJugar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbJugarActionPerformed(evt);
@@ -107,7 +107,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jbRanking.setText("Ranking de Jugadores");
-        jbRanking.setMargin(new java.awt.Insets(0, 14, 0, 14));
+        jbRanking.setMargin(null);
         jbRanking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbRankingActionPerformed(evt);
@@ -122,6 +122,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         jbInfo.setText("Info");
+        jbInfo.setMaximumSize(null);
+        jbInfo.setMinimumSize(null);
         jbInfo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInfoActionPerformed(evt);
@@ -132,34 +134,33 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(250, 250, 250)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jbRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
-                    .addComponent(JbJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JbRegistrarJugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(311, 311, 311))
+                .addContainerGap(586, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(JbJugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JbRegistrarJugador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbRanking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(100, 100, 100))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(JbJugar)
+                .addGap(120, 120, 120)
+                .addComponent(JbJugar, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JbRegistrarJugador)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addComponent(jbRanking)
+                .addComponent(JbRegistrarJugador, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbRanking, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbSalir)
-                    .addComponent(jbInfo))
-                .addGap(178, 178, 178))
+                    .addComponent(jbInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -171,18 +172,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         CrearJugador vCrearJugador = new CrearJugador(Modelo);
         vCrearJugador.setSize(900, 600);
         vCrearJugador.setVisible(true);
-        vCrearJugador.setTitle("ESQUINAS - Crear Jugador");
+        vCrearJugador.setTitle("INVERSIONES - Crear Jugador");
         dispose();
 
     }//GEN-LAST:event_JbRegistrarJugadorActionPerformed
 
     private void jbRankingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbRankingActionPerformed
-        //Apertura de la ventana ranking jugador
-        Ranking vRanking = new Ranking(Modelo);
-        vRanking.setSize(900, 600);
-        vRanking.setVisible(true);
-        vRanking.setTitle("ESQUINAS - Ranking");
-        dispose();
+
+//        if (Modelo.getRanking().size() > 0){
+//            //Apertura de la ventana ranking jugador
+//            Ranking vRanking = new Ranking(Modelo);
+//            vRanking.setSize(900, 600);
+//            vRanking.setVisible(true);
+//            vRanking.setTitle("INVERSIONES - Ranking");
+//            dispose();
+//        }else{
+            JOptionPane.showMessageDialog(null, "Aún no existen jugadores registrados!");
+//        }
 
 
     }//GEN-LAST:event_jbRankingActionPerformed
@@ -193,7 +199,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             SeleccionarJugadores vSeleccionarJugadores = new SeleccionarJugadores(this.Modelo);
             vSeleccionarJugadores.setSize(900, 600);
             vSeleccionarJugadores.setVisible(true);
-            vSeleccionarJugadores.setTitle("ESQUINAS - Seleccionar Jugadores");
+            vSeleccionarJugadores.setTitle("INVERSIONES - Seleccionar Jugadores");
             dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Es necesario tener al menos 2 Jugadores");

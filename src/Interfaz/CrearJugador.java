@@ -4,7 +4,6 @@
  * @author Rodrigo Blanco - 151251 - Programación II
  * *************************************************
  */
-
 package Interfaz;
 
 import javax.swing.JComboBox;
@@ -27,7 +26,7 @@ public class CrearJugador extends javax.swing.JFrame {
     private int edad = 0;
     private int largoAliasNombrePermitido = 15; //para restringir el largo de nombre y alias en pantalla
     private Image stonesIcon = (new ImageIcon("src/Img/stonesicon.png").getImage());
-    private ImageIcon background = new ImageIcon("src/Img/background-crearJugador.png");
+    private ImageIcon background = new ImageIcon("src/Img/background-registroJugador.png");
     private ImageIcon atrasIco = new ImageIcon("src/Img/volver.png");
     private ImageIcon crearIco = new ImageIcon("src/Img/crear.png");
 
@@ -51,7 +50,6 @@ public class CrearJugador extends javax.swing.JFrame {
         //Seteo imagen de icono
         this.setIconImage(stonesIcon);
 
-
         //Seteo imagenes de los botones
         jbCrear.setIcon(crearIco);
         jbAtras.setIcon(atrasIco);
@@ -61,14 +59,12 @@ public class CrearJugador extends javax.swing.JFrame {
         jbAtras.setOpaque(false);
         jTextFAlias.setOpaque(false);
         jTextFNombre.setOpaque(false);
-        
+
         jbCrear.setContentAreaFilled(false);
         jbAtras.setContentAreaFilled(false);
 
-
         jbCrear.setBorderPainted(false);
         jbAtras.setBorderPainted(false);
-
 
         //tooltips de ayuda
         jbCrear.setToolTipText("Presione aquí para crear el jugador");
@@ -79,14 +75,13 @@ public class CrearJugador extends javax.swing.JFrame {
         jbAtras.setText("");
         jTextFAlias.setText(null);
         jTextFNombre.setText(null);
-        
+
         jTextFAlias.setBorder(null);
         jTextFNombre.setBorder(null);
-        
+
         this.getListaEdades();
-        jbCrear.setEnabled(true);        
-        
-        
+        jbCrear.setEnabled(true);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -100,7 +95,7 @@ public class CrearJugador extends javax.swing.JFrame {
         jbAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("ESQUINAS - Crear Jugador");
+        setTitle("INVERSIONES - Crear Jugador");
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(900, 600));
@@ -162,8 +157,10 @@ public class CrearJugador extends javax.swing.JFrame {
         });
 
         jbCrear.setText("Crear");
-        jbCrear.setMaximumSize(new java.awt.Dimension(200, 50));
-        jbCrear.setPreferredSize(new java.awt.Dimension(200, 42));
+        jbCrear.setMargin(null);
+        jbCrear.setMaximumSize(null);
+        jbCrear.setMinimumSize(null);
+        jbCrear.setPreferredSize(null);
         jbCrear.setSelected(true);
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +169,10 @@ public class CrearJugador extends javax.swing.JFrame {
         });
 
         jbAtras.setText("Atras");
+        jbAtras.setMargin(null);
+        jbAtras.setMaximumSize(null);
+        jbAtras.setMinimumSize(null);
+        jbAtras.setPreferredSize(null);
         jbAtras.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAtrasActionPerformed(evt);
@@ -184,22 +185,15 @@ public class CrearJugador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(230, 230, 230)
-                .addComponent(jComBEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(100, 100, 100))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(jbCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(130, 130, 130)))
-                .addComponent(jbAtras, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                    .addComponent(jTextFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComBEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 235, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                    .addComponent(jbAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,13 +202,17 @@ public class CrearJugador extends javax.swing.JFrame {
                 .addComponent(jTextFAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jTextFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jComBEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbAtras, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jbCrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jComBEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addComponent(jbCrear, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbAtras, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                        .addGap(50, 50, 50))))
         );
 
         pack();
@@ -226,7 +224,7 @@ public class CrearJugador extends javax.swing.JFrame {
         try {
 
             if (this.aliasOK(jTextFAlias.getText()) && this.nombreOK(jTextFNombre.getText())) {
-                Jugador unJugador = new Jugador(alias, nombre, edad, 0, 0,0);
+                Jugador unJugador = new Jugador(alias, nombre, edad,0,0,0);
                 Modelo.agregarJugador(unJugador);
                 JOptionPane.showMessageDialog(null, unJugador);
                 jTextFAlias.setText(null);
@@ -240,9 +238,11 @@ public class CrearJugador extends javax.swing.JFrame {
                     Logger.getLogger(CrearJugador.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+
         } catch (Exception ex) {
 
         }
+
     }//GEN-LAST:event_jbCrearActionPerformed
 
     private void jbAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAtrasActionPerformed
@@ -263,11 +263,11 @@ public class CrearJugador extends javax.swing.JFrame {
 
     private void jTextFAliasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFAliasKeyTyped
 
-     //para que no ingresen más de 15 caracteres
-     if(jTextFAlias.getText().length()>=largoAliasNombrePermitido) {  
-       jTextFAlias.setText(jTextFAlias.getText().substring(0, largoAliasNombrePermitido));
-     }
-        
+        //para que no ingresen más de 15 caracteres
+        if (jTextFAlias.getText().length() >= largoAliasNombrePermitido) {
+            jTextFAlias.setText(jTextFAlias.getText().substring(0, largoAliasNombrePermitido));
+        }
+
     }//GEN-LAST:event_jTextFAliasKeyTyped
 
     private void jTextFAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFAliasActionPerformed
@@ -279,12 +279,11 @@ public class CrearJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFAliasFocusLost
 
     private void jTextFNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFNombreKeyTyped
-     //para que no ingresen más de 15 caracteres
-     if(jTextFNombre.getText().length()>= largoAliasNombrePermitido) {  
-       jTextFNombre.setText(jTextFNombre.getText().substring(0, largoAliasNombrePermitido));
-     }
+        //para que no ingresen más de 15 caracteres
+        if (jTextFNombre.getText().length() >= largoAliasNombrePermitido) {
+            jTextFNombre.setText(jTextFNombre.getText().substring(0, largoAliasNombrePermitido));
+        }
     }//GEN-LAST:event_jTextFNombreKeyTyped
-
 
     private boolean aliasOK(String unAlias) {
         boolean retorno; //false
@@ -318,7 +317,6 @@ public class CrearJugador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo Nombre Vacío");
             retorno = false;
         } else {
-
             nombre = texto;
             retorno = true;
         }
@@ -326,11 +324,9 @@ public class CrearJugador extends javax.swing.JFrame {
         return retorno;
     }
 
-
-
     private boolean existeAlias(String unAlias) {
         boolean retorno = false;
-        Jugador unJugador = new Jugador(unAlias, "temp", 0,0,0,0);
+        Jugador unJugador = new Jugador(unAlias, "temp", 0, 0, 0, 0);
 
         if (Modelo.getListaJugadores().contains(unJugador)) {
             retorno = true;
@@ -391,7 +387,6 @@ public class CrearJugador extends javax.swing.JFrame {
         }
     }
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox jComBEdad;

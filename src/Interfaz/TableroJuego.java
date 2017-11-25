@@ -102,6 +102,7 @@ public class TableroJuego extends javax.swing.JFrame {
         jLJugador2Status = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("INVERSIONES - Juego");
         setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 600));
         setResizable(false);

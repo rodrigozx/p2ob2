@@ -1,10 +1,3 @@
-/** ***************************************************
- * Clase: Ranking
- *
- * @author Rodrigo Blanco - 151251 - Programación II
- * *************************************************
- */
-
 package Interfaz;
 
 import java.util.ArrayList;
@@ -13,16 +6,8 @@ import Dominio.Jugador;
 import Dominio.Sistema;
 import java.awt.Image;
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.*;
 
 public class Ranking extends javax.swing.JFrame {
@@ -32,8 +17,7 @@ public class Ranking extends javax.swing.JFrame {
     private ImageIcon background = new ImageIcon("src/Img/background-ranking.png");
     private ImageIcon atrasIco = new ImageIcon("src/Img/volver.png");
     private ImageIcon crearIco = new ImageIcon("src/Img/crear.png");
-
-        
+    
     public Ranking(Sistema elModelo) {
 
         Modelo = elModelo;
@@ -43,9 +27,9 @@ public class Ranking extends javax.swing.JFrame {
 
         //Inicializo los componentes
         initComponents();
-        setLocationRelativeTo(null);//Ventana Centrad
+        setLocationRelativeTo(null);//Ventana Centrada        setLocationRelativeTo(null);//Ventana Centrada
         setResizable(false);//Impedir que se maximice
-        setTitle("ESQUINAS - Ranking de Jugadores");
+        setTitle("STONES - Crear Jugador");
 
         //Seteo imagen de icono
         this.setIconImage(stonesIcon);
@@ -61,13 +45,13 @@ public class Ranking extends javax.swing.JFrame {
         //tooltips de ayuda
         jBAtras.setToolTipText("Presione aquí para volver al Menú Principal");
         jBAtras.setText("");
-        this.cargarTablaRanking(Modelo.getRanking());
+        this.cargarTablaRanking(Modelo.getListaJugadores());
 
         //Visibilidad de la grilla
         jScrollPane2.getViewport().setOpaque(false);
-        jTRanking.setBackground(new Color(213, 134, 145, 123));
+        jTRAnking.setBackground(new Color(213, 134, 145, 123));
         jScrollPane2.getViewport().setBackground(new Color(213, 134, 145, 123));
-        jTRanking.setOpaque(false);
+        jTRAnking.setOpaque(false);
         jScrollPane2.setOpaque(false);
         jScrollPane2.setForeground(new Color(255,255,255,255));
         jScrollPane2.getViewport().setForeground(new Color(255,255,255,255));
@@ -75,11 +59,10 @@ public class Ranking extends javax.swing.JFrame {
         //Centrado
         DefaultTableCellRenderer celdasCentradas = new DefaultTableCellRenderer();
         celdasCentradas.setHorizontalAlignment(DefaultTableCellRenderer.CENTER);
-        jTRanking.getColumn("Posición").setCellRenderer( celdasCentradas );
-        jTRanking.getColumn("Alias").setCellRenderer( celdasCentradas );
-        jTRanking.getColumn("Edad").setCellRenderer( celdasCentradas);
-        jTRanking.getColumn("Ganadas").setCellRenderer( celdasCentradas );
-        jTRanking.getColumn("Perdidas").setCellRenderer( celdasCentradas);
+        jTRAnking.getColumn("Posición").setCellRenderer( celdasCentradas );
+        jTRAnking.getColumn("Alias").setCellRenderer( celdasCentradas );
+        jTRAnking.getColumn("Ganadas").setCellRenderer( celdasCentradas );
+        jTRAnking.getColumn("Perdidas").setCellRenderer( celdasCentradas);
     }
 
     /**
@@ -93,11 +76,12 @@ public class Ranking extends javax.swing.JFrame {
 
         jBAtras = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTRanking = new javax.swing.JTable();
-        jBExport = new javax.swing.JButton();
+        jTRAnking = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(900, 600));
         setMinimumSize(new java.awt.Dimension(900, 600));
+        setPreferredSize(new java.awt.Dimension(900, 600));
         setSize(new java.awt.Dimension(900, 600));
 
         jBAtras.setText("Atras");
@@ -109,8 +93,8 @@ public class Ranking extends javax.swing.JFrame {
 
         jScrollPane2.setPreferredSize(new java.awt.Dimension(800, 402));
 
-        jTRanking.setForeground(new java.awt.Color(255, 255, 255));
-        jTRanking.setModel(new javax.swing.table.DefaultTableModel(
+        jTRAnking.setForeground(new java.awt.Color(255, 255, 255));
+        jTRAnking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -118,30 +102,20 @@ public class Ranking extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane2.setViewportView(jTRanking);
-
-        jBExport.setText("Exportar Ranking");
-        jBExport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBExportActionPerformed(evt);
-            }
-        });
+        jScrollPane2.setViewportView(jTRAnking);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jBAtras)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jBExport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBAtras)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -149,13 +123,9 @@ public class Ranking extends javax.swing.JFrame {
                 .addGap(150, 150, 150)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBAtras)
-                    .addComponent(jBExport))
+                .addComponent(jBAtras)
                 .addContainerGap())
         );
-
-        getAccessibleContext().setAccessibleName("ESQUINAS - Ranking");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -166,52 +136,6 @@ public class Ranking extends javax.swing.JFrame {
         vMenuPrinipal.setVisible(true);
         dispose();
     }//GEN-LAST:event_jBAtrasActionPerformed
-
-    private void jBExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBExportActionPerformed
-        
-        // Panel
-        JFrame parentFrame = new JFrame();
-
-        //Archivo
-        File archivo= new File("Ranking.xls");
-        
-        //Filtro para guardar siempre como archivo xls
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("xls","xls");
-        JFileChooser seleccionArchivo = new JFileChooser();
-        
-        //Seteo del panel
-        seleccionArchivo.setDialogTitle("Exportar Ranking de Jugadores");   
-        seleccionArchivo.setCurrentDirectory(new java.io.File(".")); //Fija donde se encuentra el programa.
-        seleccionArchivo.setFileFilter(filtro);
-        seleccionArchivo.setAcceptAllFileFilterUsed(false); //Para que no se pueda guardar con otra extensión.
-        seleccionArchivo.setSelectedFile(archivo);
-
-        
-        int seleccionRetorno = seleccionArchivo.showSaveDialog(parentFrame);
-
-        if (seleccionRetorno == JFileChooser.APPROVE_OPTION) {
-            String ext = "";
-            try {
-                if(!seleccionArchivo.getSelectedFile().getCanonicalPath().endsWith(".xls")){
-                    ext =".xls";
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(Ranking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            try {
-                archivo = new File(seleccionArchivo.getSelectedFile().getCanonicalPath() + ext );
-            } catch (IOException ex) {
-                Logger.getLogger(Ranking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                writeXLSFile(archivo);
-            } catch (IOException ex) {
-                Logger.getLogger(Ranking.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jBExportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +163,6 @@ public class Ranking extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Ranking.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -251,49 +174,25 @@ public class Ranking extends javax.swing.JFrame {
     }
 
     public void cargarTablaRanking(ArrayList<Jugador> unaListaJugadoresOrd) {
-        String[] columnas = {"Posición", "Alias","Edad", "Ganadas", "Perdidas"};
+        String[] columnas = {"Posición", "Alias", "Ganadas", "Perdidas"};
         DefaultTableModel dtm = new DefaultTableModel(null, columnas);
 
         for (int i = 0; i < unaListaJugadoresOrd.size(); i++) {
-            String[] fila = {"" + (i + 1), "" + unaListaJugadoresOrd.get(i).getAlias(), "" + unaListaJugadoresOrd.get(i).getEdad(), "" + unaListaJugadoresOrd.get(i).getPartidas()[0],
-                "" + unaListaJugadoresOrd.get(i).getPartidas()[1]};
+            String[] fila = {"" + (i + 1), "" + unaListaJugadoresOrd.get(i).getAlias(), "" + unaListaJugadoresOrd.get(i).getPartidasGanadasToString(),
+                "" + unaListaJugadoresOrd.get(i).getPartidasPerdidasToString()};
+
             dtm.addRow(fila);
         }
-        jTRanking.setModel(dtm);
-        jTRanking.setEnabled(false);
+
+        jTRAnking.setModel(dtm);
+        jTRAnking.setEnabled(false);
 
     }
-    
-    public void writeXLSFile(File archivo) throws IOException {
 
-       TableModel model = jTRanking.getModel();
-       FileWriter out = new FileWriter(archivo);
-        
-       String groupExport = "";
-        for (int i = 0; i < (model.getColumnCount()); i++) {//* disable export from TableHeaders
-            groupExport = String.valueOf(model.getColumnName(i));
-            out.write(String.valueOf(groupExport) + "\t");
-        }
-        out.write("\n");
-        for (int i = 0; i < model.getRowCount(); i++) {
-            for (int j = 0; j < (model.getColumnCount()); j++) {
-                if (model.getValueAt(i, j) == null) {
-                    out.write("null" + "\t");
-                } else {
-                    groupExport = String.valueOf(model.getValueAt(i, j));
-                    out.write(String.valueOf(groupExport) + "\t");
-                }
-            }
-            out.write("\n");
-        }
-        out.close();
-    }
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBAtras;
-    private javax.swing.JButton jBExport;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTRanking;
+    private javax.swing.JTable jTRAnking;
     // End of variables declaration//GEN-END:variables
 }
